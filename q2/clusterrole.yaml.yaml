@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hakim-role
+rules:
+- apiGroups: [""]
+  resources: ["persistentvolumes", "secrets", "configmaps"]
+  verbs: ["create", "delete", "get", "list", "patch", "update"]
+- apiGroups: ["apps"]
+  resources: ["deployments", "statefulsets"]
+  verbs: ["create", "delete", "get", "list", "patch", "update"]
+- apiGroups: ["storage.k8s.io"]
+  resources: ["storageclasses"]
+  verbs: ["create", "delete", "get", "list", "patch", "update"]
+- apiGroups: [""]
+  resources: ["persistentvolumeclaims"]
+  verbs: ["create", "delete", "get", "list", "patch", "update"]
